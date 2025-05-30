@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<table border="1">
+    <tr>
+        <td>Id</td>
+        <td>Tên</td>
+        <td>Email</td>
+        <td>Số</td>
+        <td>Trình độ</td>
+        <td>Kinh nghiệm</td>
+        <td>Kỹ năng</td>
+        <td>Active</td>
+    </tr>
+    <tr th:each="resume:${resumes}">
+        <td th:text="${resume.id}"></td>
+        <td th:text="${resume.fullName}">Tên</td>
+        <td th:text="${resume.email}">Email</td>
+        <td th:text="${resume.phoneNumber}">Số</td>
+        <td th:text="${resume.education}">Trình độ</td>
+        <td th:text="${resume.experience}">Kinh nghiệm</td>
+        <td th:text="${resume.skills}">Kỹ năng</td>
+        <td><a th:href="@{'/edit/' + ${resume.id}}">Sửa</a> | <a th:href="${'/delete/' + resume.id}">Xóa</a></td>
+    </tr>
+</table>
+<a href="add">Thêm</a>
+</body>
+</html>
